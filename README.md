@@ -7,6 +7,8 @@ list maintenance from the Cerner / Access eForms application teams and allows th
 update printing locale information, while only allowing logged/limited database access via a friendly web front end (React based, uses 
 React-Tabulator for searchable/sortable tables).
 
+!(https://github.com/matthew-brown-mlsci/KSWIC-eForms-Printer-Lookup-widget/blob/master/screencap1.jpg)
+!(https://github.com/matthew-brown-mlsci/KSWIC-eForms-Printer-Lookup-widget/blob/master/screencap2.jpg)
 
 # Install dependencies (build done on Win10 x64 env)
 Install WinPython x64\
