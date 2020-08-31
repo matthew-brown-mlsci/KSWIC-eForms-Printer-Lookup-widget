@@ -1,0 +1,86 @@
+-- Schema create for MS SQL Printer_Lookup db
+--
+-- For KSWIC Access eForms printer/workstation + changelog tables
+--
+
+-- 
+
+CREATE TABLE Printer_Lookup.dbo.changelog (
+	changelog_key int IDENTITY(1,1) NOT NULL,
+	log_entry char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	old_pc_id char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	new_pc_id char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	old_printer char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	new_printer char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[domain] char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	environment char(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	notes char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	created datetime NULL,
+	createdby char(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	createdby_host char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CONSTRAINT PK__changelo__8930C5EB25196DCA PRIMARY KEY (changelog_key)
+) GO
+ CREATE NONCLUSTERED INDEX changelog_new_pc_id_index ON dbo.changelog (  new_pc_id ASC  )  
+	 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
+	 ON [PRIMARY ]  GO
+ CREATE NONCLUSTERED INDEX changelog_new_printer_index ON dbo.changelog (  new_printer ASC  )  
+	 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
+	 ON [PRIMARY ]  GO
+ CREATE NONCLUSTERED INDEX changelog_old_pc_id_index ON dbo.changelog (  old_pc_id ASC  )  
+	 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
+	 ON [PRIMARY ]  GO
+ CREATE NONCLUSTERED INDEX changelog_old_printer_index ON dbo.changelog (  old_printer ASC  )  
+	 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
+	 ON [PRIMARY ]  GO
+
+-- Drop table
+
+-- DROP TABLE Printer_Lookup.dbo.hospital GO
+
+CREATE TABLE Printer_Lookup.dbo.hospital (
+	hospital_key int IDENTITY(1,1) NOT NULL,
+	pc_id char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	printer char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	notes char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	created datetime NULL,
+	createdby char(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	edited datetime NULL,
+	editedby char(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	inactivated datetime NULL,
+	inactivatedby char(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CONSTRAINT PK__hospital__0737DF1652CBAC67 PRIMARY KEY (hospital_key),
+	CONSTRAINT UQ__hospital__1D3A69C117805D30 UNIQUE (pc_id)
+) GO
+CREATE UNIQUE INDEX UQ__hospital__1D3A69C117805D30 ON Printer_Lookup.dbo.hospital (pc_id) GO
+ CREATE NONCLUSTERED INDEX hospital_hospital_key_index ON dbo.hospital (  hospital_key ASC  )  
+	 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
+	 ON [PRIMARY ]  GO
+ CREATE NONCLUSTERED INDEX hospital_pc_id_index ON dbo.hospital (  pc_id ASC  )  
+	 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
+	 ON [PRIMARY ]  GO
+
+-- Drop table
+
+-- DROP TABLE Printer_Lookup.dbo.testenv GO
+
+CREATE TABLE Printer_Lookup.dbo.testenv (
+	testenv_key int IDENTITY(1,1) NOT NULL,
+	pc_id char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	printer char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	notes char(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	created datetime NULL,
+	createdby char(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	edited datetime NULL,
+	editedby char(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	inactivated datetime NULL,
+	inactivatedby char(128) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CONSTRAINT PK__testenv__484FD22C04C0947A PRIMARY KEY (testenv_key),
+	CONSTRAINT UQ__testenv__1D3A69C188F89E4B UNIQUE (pc_id)
+) GO
+CREATE UNIQUE INDEX UQ__testenv__1D3A69C188F89E4B ON Printer_Lookup.dbo.testenv (pc_id) GO
+ CREATE NONCLUSTERED INDEX testenv_pc_id_index ON dbo.testenv (  pc_id ASC  )  
+	 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
+	 ON [PRIMARY ]  GO
+ CREATE NONCLUSTERED INDEX testenv_testenv_key_index ON dbo.testenv (  testenv_key ASC  )  
+	 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
+	 ON [PRIMARY ]  GO;
