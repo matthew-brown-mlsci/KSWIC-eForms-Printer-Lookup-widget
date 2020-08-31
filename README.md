@@ -8,7 +8,7 @@ update printing locale information, while only allowing logged/limited database 
 React-Tabulator for searchable/sortable tables).
 
 ![React front-end tab 1](https://github.com/matthew-brown-mlsci/KSWIC-eForms-Printer-Lookup-widget/blob/master/screencap1.jpg)
-![React front-end tab 2]((https://github.com/matthew-brown-mlsci/KSWIC-eForms-Printer-Lookup-widget/blob/master/screencap2.jpg)
+![React front-end tab 2](https://github.com/matthew-brown-mlsci/KSWIC-eForms-Printer-Lookup-widget/blob/master/screencap2.jpg)
 
 # Install dependencies (build done on Win10 x64 env)
 Install WinPython x64\
