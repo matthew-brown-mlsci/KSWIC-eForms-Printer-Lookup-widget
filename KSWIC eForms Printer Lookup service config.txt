@@ -1,0 +1,3 @@
+database|Printer_Lookup|SQLPROD6.sqlserver.fqdn|sqlserver_username|sqlserver_password
+ad_group|EXAMPLE|myADgroup|read-write
+ad_user|EXAMPLE|myADusername|read-write
